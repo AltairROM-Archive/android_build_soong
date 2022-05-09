@@ -173,6 +173,17 @@ var BannerVars = []string{
 	"MAINLINE_MODULES_MAKEFILE",
 }
 
+var BannerVarsMini = []string{
+	"PLATFORM_VERSION_CODENAME",
+	"PLATFORM_VERSION",
+	"LINEAGE_VERSION",
+	"TARGET_PRODUCT",
+	"TARGET_BUILD_VARIANT",
+	"TARGET_BUILD_TYPE",
+	"BUILD_ID",
+	"OUT_DIR",
+}
+
 // Colors to use for the top banner
 var Color_Red = "\033[31m"
 var Color_Green = "\033[32m"
@@ -195,7 +206,7 @@ func Banner(make_vars map[string]string) string {
 	fmt.Fprintln(b, Color_Blue + "  ██║  ██║███████╗██║   ██║  ██║██║██║  ██║    ██║  ██║╚██████╔╝██║ ╚═╝ ██║  " + Color_Reset)
 	fmt.Fprintln(b, Color_Blue + "  ╚═╝  ╚═╝╚══════╝╚═╝   ╚═╝  ╚═╝╚═╝╚═╝  ╚═╝    ╚═╝  ╚═╝ ╚═════╝ ╚═╝     ╚═╝  " + Color_Reset)
 	fmt.Fprintln(b, Color_White + "=============================================================================" + Color_Reset)
-	for _, name := range BannerVars {
+	for _, name := range BannerVarsMini {
 		if make_vars[name] != "" {
 			fmt.Fprintf(b, Color_White + "  %s = " + Color_Bold + Color_Green + "%s" + Color_Reset + "\n", name, make_vars[name])
 		}
